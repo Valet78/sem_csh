@@ -14,3 +14,4 @@ b = Convert.ToInt32(Console.ReadLine());
 sqr = b * b;
 if (a == sqr) Console.WriteLine("да");
     else Console.WriteLine("нет");
+    
