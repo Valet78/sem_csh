@@ -25,8 +25,8 @@ if (str_num != null) {
 ///*
 int temp = 1;
 Console.Write("Введите целое положительное число: ");
-string num_str = Console.ReadLine();
-if (num_str != "")
+string? num_str = Console.ReadLine();
+if (num_str != null)
 {
     int num_l = num_str.Length;
     if (num_l > 2) 
