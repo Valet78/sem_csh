@@ -8,13 +8,13 @@ public class MainClass
         
       // *********************  
         
-        Console.Write("Введите целое число, отличное от нуля: ");
+        Console.Write("Введите целое число больше нуля: ");
         int num = Convert.ToInt16(Console.ReadLine ());
-        int num_abs = Math.Abs(num);
+        
         if (num != 0) {
-            for(int i=1; i <= num_abs; i++){
+            for(int i=1; i <= num; i++){
                 Console.Write(i*i);
-            if (i < num_abs) Console.Write(", ");
+            if (i < num) Console.Write(", ");
             }
         } else Console.WriteLine("Введено недопустимое значение!");
 
