@@ -13,8 +13,8 @@ public class MainClass
         int flag = 0, start = 0, len = num_str.Length-1;
         int num = Convert.ToInt32(num_str);
 
-        if ((num > 0 && len > 1) || (num < 0 && len > 2)){
-            if (num < 0) start = 1;
+        if (num < -9 || num > 9){
+            if (num < -9) start = 1;
             for (int i=start; i <= len/2; i++){
                 
                 if(num_str[i] != num_str[len-i+start]) {
