@@ -18,8 +18,9 @@ public class MainClass {
             string ? number_str = Console.ReadLine();
             
             if (number_str != "") {
-                number = Convert.ToUInt16(number_str);
-                if (number > 0) {
+                //number = Convert.ToUInt16(number_str);
+                number =  TryInputText(number_str);   
+                if (number != -1) {
                         int summ = GetSumm(number);
                         Console.WriteLine($"Сумма чисел от 1 до А = {number} равна {summ}");
 
@@ -38,7 +39,22 @@ public class MainClass {
                 
                 return res;
             }
-               
+            // Проверка правильности ввода числа   
+            int TryInputText (string InputText){
+                int try_res=0;
+                if(int.TryParse(InputText, out try_res)){
+                    if(try_res < 1) try_res = -1;
+                } 
+                else try_res = -1;
+                return try_res;
+            }
+
+
+
+
+
+
+
     }
 
             
