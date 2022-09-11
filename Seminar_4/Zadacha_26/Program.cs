@@ -17,14 +17,14 @@ public class MainClass {
             string ? number_str = Console.ReadLine();
             
             if (number_str != "") {
-                int simvl = LegthString (number_str);
+                int simvl = LegthString (number_str ?? "0");
                 if (simvl != -1) Console.WriteLine($"В числе {number_str} цифр {simvl}");       
                 else Console.WriteLine("Введено некорректное число.");    
             }
             else Console.WriteLine("Вы забыли ввести число. Попробуйте снова.");
                         
                         
-            int LegthString (string ? num_str){
+            int LegthString (string num_str){
                 int res = num_str.Length;                
                 int num = 0;
                 
