@@ -40,7 +40,7 @@ public class MainClass {
                 return res;
             }
             // Проверка правильности ввода числа   
-            int TryInputText (string InputText){
+            int TryInputText (string ? InputText){
                 int try_res=0;
                 if(int.TryParse(InputText, out try_res)){
                     if(try_res < 1) try_res = -1;

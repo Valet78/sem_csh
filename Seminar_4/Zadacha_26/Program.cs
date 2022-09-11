@@ -24,7 +24,7 @@ public class MainClass {
             else Console.WriteLine("Вы забыли ввести число. Попробуйте снова.");
                         
                         
-            int LegthString (string num_str){
+            int LegthString (string ? num_str){
                 int res = num_str.Length;                
                 int num = 0;
                 

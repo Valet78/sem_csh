@@ -9,7 +9,7 @@ public class MainClass
       // *********************  
         
         Console.Write("Введите целое число: ");
-        string num_str = Console.ReadLine ();
+        string ? num_str = Console.ReadLine ();
         int flag = 0, start = 0, len = num_str.Length-1;
         int num = Convert.ToInt32(num_str);
 
