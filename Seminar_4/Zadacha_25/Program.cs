@@ -14,23 +14,21 @@ public class MainClass {
             Console.Clear();
             Console.OutputEncoding = System.Text.Encoding.Unicode;
                 
-            Console.WriteLine("Введите два целых числа (A и B), где А будет возводено в натуральную степень B:");
+            Console.WriteLine($"Введите два целых числа (A и B), где А будет возводено в натуральную степень B (B{char.ConvertFromUtf32(8800)}0):");
             Console.Write("A = ");
             string ? num_A_str = Console.ReadLine();
             Console.Write("B = ");
             string ? num_B_str = Console.ReadLine();
+            bool tryText = true;
 
             if (num_A_str != "" && num_B_str != ""){                    //если строки непустые
-                int num_A = TryInputText (num_A_str ?? "0");
-                int num_B = TryInputText (num_B_str ?? "0");
+                int num_A = TryInputText (num_A_str ?? "0", ref tryText);            //Проверка правильности ввода числа А
+                int num_B = TryInputText (num_B_str ?? "0", ref tryText);            //Проверка правильности ввода числа В
                 double res = 1;
                 int b_stop = 0;
                 
-                if (num_A != -1 && num_B != -1){
-                    if (num_A != 0){                                    //основание степени не должно быть равно нулю
-                        
-                        if (num_B == 0) Console.WriteLine("А в степени В=0 равно 1.");      //число в степени 0 равно 1 
-                        else {
+                if (tryText){
+                    if (num_B != 0){                        
                             b_stop = (num_B > 0) ? num_B: -num_B;
                             for (int i = 0; i < b_stop; i++){
                                 res *= num_A;                                
@@ -39,17 +37,17 @@ public class MainClass {
 
                         string kod_txt = GenKod(num_B_str ?? "0");          //генерируем строку на выдачу
                         Console.WriteLine($"Число А={num_A} в степени {num_B} равно {res} ({num_A}{kod_txt})");              
-                        }                         
+                                               
                     }
-                    else Console.WriteLine("A не может быть рвно нулю.");
+                    else Console.WriteLine("B не может быть рвно нулю по условию.");
                 }
                 else Console.WriteLine("Введено некорректное число. Попробуйте снова.");
             }
 
                         // Проверка правильности ввода числа   
-            int TryInputText (string InputText){
+            int TryInputText (string inputText, ref bool tryText){
                 int try_res=0;
-                if(!int.TryParse(InputText, out try_res)) try_res = -1;
+                if(!int.TryParse(inputText, out try_res)) tryText = false;
                 return try_res;
             }
 
