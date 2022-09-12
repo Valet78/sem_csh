@@ -18,23 +18,26 @@ public class MainClass {
             string ? num_str = Console.ReadLine();
 
             if (num_str != ""){               
-                int len = num_str.Length;
+                int len = num_str!.Length;
                 int sum = 0, temp = 0;
-                for(int i = 0; i < len; i++){
-                    if(num_str[i] == '-') continue;
-                    temp = TryInputText (num_str[i].ToString());
-                    if(temp != -1) sum += temp; 
-                    else Console.WriteLine("Введено некорректное число. Попробуйте снова.");
-                }
+                bool tryText = true;
+                
+                temp = TryInputText (num_str, ref tryText);
+                if (tryText){                    
+                    for(int i = 0; i < len; i++){
+                        if(num_str[i] == '-') continue;
+                        sum += Convert.ToInt32(num_str[i].ToString());                    ;
+                    }
                 Console.WriteLine($"Сумма цифр в числе {num_str} равна {sum}");                
                 }
                 else Console.WriteLine("Введено некорректное число. Попробуйте снова.");
-            
+            }
+            else Console.WriteLine("Введено некорректное число. Попробуйте снова.");
 
                         // Проверка правильности ввода числа   
-            int TryInputText (string InputText){
+            int TryInputText (string inputText, ref bool tryText){
                 int try_res=0;
-                if(!int.TryParse(InputText, out try_res)) try_res = -1;
+                if(!int.TryParse(inputText, out try_res)) tryText = false;
                 return try_res;
             }            
     }           
