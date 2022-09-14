@@ -12,15 +12,27 @@ using System;
 public class MainClass {
     public static void Main(){
             Console.Clear();
-            
             int [] mass = new int [8];
-            string temp="[";
-            for(int i = 0; i < 8; i++){
-                mass[i] = new Random().Next(100);
+            
+            RndMass();    
+            OutMass ();
+
+            //вывод массива
+            void OutMass (){
+                string temp = "[";
+                for(int i = 0; i < 8; i++){
                 temp += mass[i].ToString();
                 if(i < 7) temp += ", ";
-            }         
-            Console.Write(temp + "]");
+                }
+                Console.Write(temp + "]");                
+            }
+
+            //заполнение массива
+            void RndMass(){
+                for(int i = 0; i < 8; i++){
+                mass[i] = new Random().Next(100);                
+                }     
+            }
     }           
 
 }
