@@ -13,7 +13,7 @@ public class MainClass {
             int len = 20;                        // количество элементов в исходном массиве
             int [] mass = new int [len];
                                     
-            RndMass(mass, len, 99, 1000);  
+            RndMass(mass, len, 100, 1000);  
             OutMass (mass, len); 
             Console.Write(" -> чётных чисел в массиве ");
             Console.WriteLine(Chet());
