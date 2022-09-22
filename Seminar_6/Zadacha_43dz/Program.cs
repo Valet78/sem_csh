@@ -18,7 +18,7 @@ public class MyClass{
         Console.WriteLine("Введите параметры уравнений для поиска точки пересечения двух прямых");
         Console.WriteLine("y = k1 * x + b1 и y = k2 * x + b2");
         string [] strMassLit = {"k1 = ", "k2 = ", "b1 = ", "b2 = "};        
-        double [] MassZnach = new double [4];           
+        double [] massZnach = new double [4];           
 
         if (InputData (strMassLit)){
 /*
@@ -27,13 +27,13 @@ public class MyClass{
     имеет бесконечное множество решений, то прямые совпадают;
     не имеет решений, то прямые не пересекаются (прямые параллельны между собой)
 */
-        if (MassZnach[0] != MassZnach[1] && MassZnach[2] != MassZnach[3]) {
-            double znachX = (MassZnach[3] - MassZnach[2]) / (MassZnach[0] - MassZnach[1]);
-            double znachY = MassZnach[0] * znachX + MassZnach[2];
+        if (massZnach[0] != massZnach[1] && massZnach[2] != massZnach[3]) {
+            double znachX = (massZnach[3] - massZnach[2]) / (massZnach[0] - massZnach[1]);
+            double znachY = massZnach[0] * znachX + massZnach[2];
             
-            Console.WriteLine($"k1 = {MassZnach[0]}, b1 = {MassZnach[2]}, k2 = {MassZnach[1]}, b2 = {MassZnach[3]} -> ({znachX}; {znachY})");
+            Console.WriteLine($"k1 = {massZnach[0]}, b1 = {massZnach[2]}, k2 = {massZnach[1]}, b2 = {massZnach[3]} -> ({znachX}; {znachY})");
 
-        }  else if(MassZnach[2] == MassZnach[3]) Console.WriteLine("Прямые совпадают. Имеется множество решений.");
+        }  else if(massZnach[2] == massZnach[3]) Console.WriteLine("Прямые совпадают. Имеется множество решений.");
         else  Console.WriteLine("Прямые параллельны. Точек пересечения нет.");         
         } 
         
@@ -59,7 +59,7 @@ public class MyClass{
        // Проверка правильности ввода числа   
         bool TryInputText (string inputText, int index){
             bool tryRes = true;            
-            if(!double.TryParse(inputText, out MassZnach[index])) tryRes = false;                                  
+            if(!double.TryParse(inputText, out massZnach[index])) tryRes = false;                                  
             return tryRes;
         }
     }
