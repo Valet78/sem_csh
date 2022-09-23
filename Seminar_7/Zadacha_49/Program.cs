@@ -29,7 +29,7 @@ public class MainClass{
         MassivOutConsole(massRow, massColumn);
 
         void MassivFillRnd(int row, int column, int min, int max){
-            var rndValue = new Random();            
+            Random rndValue = new Random();            
             for(int i = 0; i < row; i++) {
                 for(int j = 0; j < column; j++){
                 massivRnd[i, j] = rndValue.Next(min, max);
