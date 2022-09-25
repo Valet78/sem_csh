@@ -23,21 +23,21 @@ public class MainClass{
         void ReversMassive (int [] massiv, int len_massiv){
             int backIndex = len_massiv - 1;
             int centr = len_massiv / 2;
-            int temp = 0;            
+            int temp = 0;
             for(int i = 0; i < centr; i++){
                 temp = massiv[i];
                 massiv[i] = massiv[backIndex];
                 massiv[backIndex] = temp;
                 backIndex--;
             }
-        }       
+        }
 
         void OutMass (int [] massiv, int len_massiv) {
             Console.Write("[");
             for (int i = 0; i < len_massiv; i++){
                 Console.Write(massiv[i]);
                 if (i<len_massiv - 1) Console.Write(" ");
-            }
+        }
             Console.Write("]");
         }
     }
