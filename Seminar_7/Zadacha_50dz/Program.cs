@@ -17,16 +17,43 @@ public class MainClass{
         Console.Clear();
 
         int massRow = 3, massColumn = 4;
-        int inputRow = 0, inputColumn = 0;
+        
         int [,] massivRnd = new int [massRow, massColumn];
         MassivFillRnd(massRow, massColumn);
         Console.WriteLine("В указанном ниже массиве укажите позицию искомого числа");
         MassivOutConsole(massRow, massColumn);
         Console.WriteLine("");        
-        InputDataValid (ref inputRow, "ряд = ");
-        
+        int inputRow = InputDataValid ("ряд = ");
+        int inputColumn = InputDataValid ("столбец = ");
+        Console.Write($"[{inputRow}, {inputColumn}] - > ");
+        if(inputRow < massRow && inputColumn < massColumn){
+            Console.WriteLine($"{massivRnd[inputRow, inputColumn]}");
+        } else Console.WriteLine("такого числа в массиве нет");
+         
 
+       
+        // Ввод и проверка  
+        int InputDataValid (string textQuery){
+            //string temp = String.Empty;
+            bool resTry = false;
+            int inputDataInt = 0;
+            while (!resTry) {
+                Console.Write(textQuery);
+                inputDataInt = InputTextValid (Console.ReadLine() ?? "0");
+                if (inputDataInt >= 0){
+                    resTry = true;
+                } else Console.WriteLine("Введено некорректное число. Попробуйте снова.");
 
+            }
+            return inputDataInt;
+        }
+            
+        // Проверка правильности ввода числа   
+        int InputTextValid (string inputText){
+            int tryRes = 0;
+            if(!int.TryParse(inputText, out tryRes)) tryRes = - 1;                        
+            return tryRes;
+        } 
 
         void MassivFillRnd(int row, int column){
             Random rndValue = new Random();   
@@ -39,50 +66,22 @@ public class MainClass{
         }
 
         void MassivOutConsole(int row, int column){
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write("R/C\t");            
+            for (int k = 0; k < column; k++) Console.Write($"{k}\t");
+            Console.ResetColor();
+            Console.WriteLine("");
             for(int i = 0; i < row; i++) {
-                for(int j = 0; j < column; j++){
-                Console.Write(massivRnd[i, j] + " ");
+                for(int j = 0; j < column; j++){   
+                if(j == 0) {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write($"{i}\t");
+                    Console.ResetColor();
+                    }                     
+                Console.Write(massivRnd[i, j] + "\t");
                 }
                 Console.WriteLine("");
             }
-        }
-
-        // Проверка правильности ввода числа   
-        int InputTextValid (string inputText, ref bool chknum){
-            int tryRes = 0;
-            chknum = true;
-            if(!int.TryParse(inputText, out tryRes)) chknum = false;                                  
-            return tryRes;
-        }
-        
-        // Ввод данных в массив строк
-        void InputDataValid (ref int inputData, string textQuery){
-            bool res = false;
-            string temp = String.Empty;
-
-            Console.Write(textQuery);
-            while (InputTextValid(Console))
-
-            for (int i = 0; i < 4; i++){
-               Console.Write(massLit[i]);
-                
-               temp = Console.ReadLine() ?? "0";
-                if(temp == "") {
-                    Console.WriteLine("Забыли ввести число. Попробуйте снова");
-                    i--;
-                } else if(!TryInputText(temp, i)){
-                    Console.WriteLine("Введено некорректное число. Попробуйте снова");
-                    i--;
-                } else res = true;
-            } 
-            return res;
-        }
-
-       // Проверка правильности ввода числа   
-        bool TryInputText (string inputText, int index){
-            bool tryRes = true;            
-            if(!double.TryParse(inputText, out massZnach[index])) tryRes = false;                                  
-            return tryRes;
         }
 
         
