@@ -38,7 +38,9 @@ public class MainClass{
                 for (int j = 0; j < i + 1; j ++){
                     numSpace = (numInputN - 1) - i;
                     if(j == 0) Console.Write(string.Concat(Enumerable.Repeat(" ", numSpace)));
-                    Console.Write(trianglPass[i, j] + " ");
+                    Console.Write(trianglPass[i, j]);
+                    if (trianglPass[i, j] < 10) Console.Write("  ");
+                    else Console.Write(" ");
                 }
                 Console.WriteLine("");
             }
