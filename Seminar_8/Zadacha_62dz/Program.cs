@@ -52,9 +52,12 @@ public class MainClass{
 
         // Вывод массива в консоль
         void MassOutInConsole(int rc){
+            int znach = 0;
             for (int i = 0; i < rc; i++){
                 for (int j = 0; j < rc; j++){
-                    Console.Write(massSpiral[i, j] + "\t");
+                    znach = massSpiral[i, j];
+                    if (znach < 10) Console.Write($"0{znach}\t");
+                    else Console.Write($"{znach}\t");
                 }
                 Console.WriteLine("");
             }
