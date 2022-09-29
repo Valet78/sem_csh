@@ -30,8 +30,7 @@ public class MainClass{
         
 
 
-        void FillMassSum (int row, int column){
-            int minSumRow = 0;            
+        void FillMassSum (int row, int column){                       
             for (int i = 0; i < row; i ++) sumInRow[i] = SummaElementsInRow (i, column);            
         }
 
@@ -39,7 +38,7 @@ public class MainClass{
             int len = sumInRow.Length;
             int minimum = sumInRow[0];
             int [] minSumRow = new int [1]{0};
-            int indexMin = 0, nSize = 0;
+            int indexMin = 0;
             for (int i = 0; i < len; i ++){
                 if(minimum > sumInRow[i]) minimum = sumInRow[i];
             }
