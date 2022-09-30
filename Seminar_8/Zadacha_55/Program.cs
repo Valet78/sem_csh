@@ -26,7 +26,7 @@ public class MainClass{
         Console.WriteLine("");
 
         void ChangeRowInColumn(int row, int column){
-            int tempValue = 0;            
+            //int tempValue = 0;            
             int rowNew = column, columnNew = row;            
             massRow = rowNew;
             massColumn = columnNew;             
