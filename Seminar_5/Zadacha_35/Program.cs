@@ -18,8 +18,7 @@ public class MainClass {
             Console.Clear();
             int len = 123;
             int [] mass = new int [len];
-            int resToRange = 0;
-            
+                        
             RndMass();   
             OutMass ();            
             Console.Write(" -> ");
