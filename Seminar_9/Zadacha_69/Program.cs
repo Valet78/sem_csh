@@ -16,10 +16,9 @@ public class MainClass{
         int numA = inputNum("A = ");        
         int numB = inputNum("B = ");
         
-        if (numB != 0){
-            if (numB < 0) numB = Math.Abs(numB);            
-            double degree = DegreeOfNumber(numA, numB);
-            if (numB < 0) degree = 1 / degree;
+        if (numB != 0){                        
+            double degree = Convert.ToDouble(DegreeOfNumber(numA, Math.Abs(numB)));
+            if (numB < 0) degree = Math.Round(1 / degree, 2);
             Console.WriteLine($"A = {numA}; B = {numB} -> {degree}");
         }   else Console.WriteLine($"A = {numA} в степени B = 0 всегда равно 1");
         
